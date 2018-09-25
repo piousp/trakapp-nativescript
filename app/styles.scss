@@ -1,0 +1,37 @@
+// NativeScript core theme
+// @see https://docs.nativescript.org/ui/theme
+@import '~nativescript-theme-core/scss/light';
+
+// Override variables here
+
+@import '~nativescript-theme-core/scss/index';
+
+@import "./custom";
+
+// Global <Page> styles
+.page-title {
+  font-size: 24;
+  color: #FFF;
+}
+
+.tr {
+  font-size: 18;
+  padding: 15 10;
+}
+
+.invalido {
+  color: red;
+  border-color: red;
+}
+
+.subtitulo {
+  font-size: 18;
+  margin: 10 0;
+}
+
+.navButton {
+  color: lightgray;
+}
+
+// Global SCSS styling
+// @see https://docs.nativescript.org/ui/styling

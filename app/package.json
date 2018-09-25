@@ -1,0 +1,8 @@
+{
+  "android": {
+    "v8Flags": "--expose_gc"
+  },
+  "main": "main",
+  "name": "trakapp-movil",
+  "version": "1.5.0"
+}

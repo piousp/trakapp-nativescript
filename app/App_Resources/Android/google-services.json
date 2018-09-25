@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "424241979329",
+    "firebase_url": "https://trakapp-b7695.firebaseio.com",
+    "project_id": "trakapp-b7695",
+    "storage_bucket": "trakapp-b7695.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:424241979329:android:9022a91c4a1927e6",
+        "android_client_info": {
+          "package_name": "com.ciriscr.trakapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "424241979329-vhec24f3njkaas4gkpv8e2hhj2vp7bun.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ciriscr.trakapp",
+            "certificate_hash": "ee67e674948c84a2ad1c17ea2925b1c1f93e9597"
+          }
+        },
+        {
+          "client_id": "424241979329-cs7149lb2mqp3uojgsih2q2ht6mmbka7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASYwhj-uJvWOfA2kV8WMNKfXsnz1l75MY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "424241979329-cs7149lb2mqp3uojgsih2q2ht6mmbka7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

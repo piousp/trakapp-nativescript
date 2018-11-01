@@ -101,7 +101,6 @@ function data() {
       cuenta: {},
       post: {}
     },
-    editable: false,
     PostTareaForm,
   };
 }
@@ -203,7 +202,6 @@ function iniciarTarea() {
               title: "Tarea iniciada",
               message: "La tarea se inició satisfactoriamente",
             });
-            console.log(resp);
             comp.tarea = resp;
             return null;
           })
@@ -224,7 +222,6 @@ function irATareas() {
 }
 
 function checkedChange(item) {
-  console.log(item.ubicacion.type, item.ubicacion.coordinates);
   item.completado = !item.completado;
   if (item.completado) {
     item.fecha = moment();
@@ -233,7 +230,6 @@ function checkedChange(item) {
 }
 
 function guardarTarea() {
-  console.log(this.tarea);
   return tareaApi.guardar(this.tarea)
     .then((resp) => {
       this.tarea = resp;

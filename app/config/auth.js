@@ -16,7 +16,6 @@ const Auth = {
               throw new Error();
             }
             this.setCredenciales(resp.data);
-            console.log("Cuenta: ", resp.data.usuario.cuenta);
             axios.defaults.headers.common.Authorization = `Bearer ${resp.data.token}`;
             axios.defaults.headers.common.Cuenta = resp.data.usuario.cuenta;
             Vue.prototype.$store.commit("setEmpleado", resp.data.usuario);

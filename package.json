@@ -5,7 +5,7 @@
   "author": "Ciris Informatic Solutions <soporte@ciriscr.com>",
   "license": "MIT",
   "nativescript": {
-    "id": "com.ciriscr.trakappcr",
+    "id": "com.ciriscr.trakapp",
     "tns-android": {
       "version": "4.1.0-2018.5.8.1"
     },

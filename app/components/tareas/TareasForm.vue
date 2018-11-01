@@ -28,11 +28,11 @@
             <StackLayout orientation="horizontal" class="m-t-10 p-x-20">
               <Label width="30%">Estado</Label>
               <StackLayout width="70%" v-show="!tarea.horaInicio" orientation="horizontal">
-                <Image src="~/images/circle-solid.png" height="15" tintColor="red"/>
+                <Image src="~/assets/images/circle-solid.png" height="15" tintColor="red"/>
                 <Label text=" Inactiva"/>
               </StackLayout>
               <StackLayout width="70%" v-show="tarea.horaInicio" orientation="horizontal">
-                <Image src="~/images/circle-solid.png" height="15" tintColor="green"/>
+                <Image src="~/assets/images/circle-solid.png" height="15" tintColor="green"/>
                 <Label text=" En progreso"/>
               </StackLayout>
             </StackLayout>
@@ -41,14 +41,24 @@
               class="h4 p-x-20"
               :text="tarea.descripcion"
               textWrap="true"/>
-            <StackLayout v-if="tarea.subtareas" class="m-t-10 p-x-20">
-              <Label class="h5">Subtareas</Label>
-              <StackLayout v-for="item in tarea.subtareas" :key="item._id">
-                <CheckBox :checked="item.completado" @checkedChange="checkedChange(item)" fillColor="indigo" color="black" border-width="gray" :text="item.texto" fontSize="16"/>
+            <StackLayout v-show="tarea.subtareas" class="m-t-10 p-x-20">
+              <StackLayout orientation="vertical">
+                <Label class="font-weight-bold">Subtareas</Label>
+                <Label class="footnote" v-show="!tarea.horaInicio">Tiene que iniciar la tarea para poder marcar subtareas</Label>
+              </StackLayout>
+              <StackLayout orientation="vertical" v-for="item in tarea.subtareas" :key="item._id">
+                <FlexboxLayout justifyContent="space-between" alignItems="center" alignContent="center">
+                  <CheckBox :checked="item.completado" @checkedChange="checkedChange(item)" fillColor="indigo"
+                  :color="tarea.horaInicio ? 'black' : 'gray'" border-width="gray" :text="item.texto"
+                  fontSize="16" :width="item.ubicacion ? '90%' : '100%'"
+                  :isUserInteractionEnabled="tarea.horaInicio ? true : false" :isEnabled="tarea.horaInicio ? true : false"/>
+                  <Image src="res://map.png" stretch="aspectFit" height="30"
+                  v-show="item.ubicacion" @tap="abrirNavegador(item.ubicacion.coordinates)"/>
+                </FlexboxLayout>
                 <StackLayout class="hr-light m-y-5"/>
               </StackLayout>
             </StackLayout>
-            <StackLayout class="btn-group m-t-10">
+            <StackLayout class="m-t-10">
               <Button class="btn btn-primary"
                       v-show="!tarea.horaInicio"
                       @tap="iniciarTarea">Iniciar tarea</Button>
@@ -56,7 +66,7 @@
                       v-show="tarea.horaInicio"
                       @tap="completarTarea">Completar tarea</Button>
               <Button class="btn btn-secondary"
-                      @tap="abrirNavegador">Abrir mapa</Button>
+                      @tap="abrirNavegador(tarea.ubicacion.coordinates)" v-show="tarea.usarUbicacion">Abrir mapa</Button>
             </StackLayout>
           </StackLayout>
         </FlexboxLayout>
@@ -116,17 +126,18 @@ function created() {
   const comp = this;
   return tareaApi.obtener(comp.id)
     .then((resp) => {
+      resp.horaInicio = !!resp.horaInicio ? resp.horaInicio : null;
       comp.tarea = resp;
       return resp;
     })
     .catch(err => console.log(err));
 }
 
-function abrirNavegador() {
+function abrirNavegador(coordinates) {
   directions.navigate({
     to: {
-      lng: this.tarea.ubicacion.coordinates[0],
-      lat: this.tarea.ubicacion.coordinates[1],
+      lng: coordinates[0],
+      lat: coordinates[1],
     },
   }).then(() => console.log("Maps app launched."))
     .catch(error => console.log(error));

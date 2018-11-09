@@ -11,6 +11,9 @@
     },
     "tns-ios": {
       "version": "4.3.0-2018-09-19-01"
+    },
+    "tns-android": {
+      "version": "4.1.3"
     }
   },
   "dependencies": {

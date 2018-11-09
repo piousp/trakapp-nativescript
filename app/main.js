@@ -4,6 +4,7 @@ import * as appSettings from "tns-core-modules/application-settings";
 import auth from "./config/auth.js";
 import axios from "./config/axios";
 import sideDrawer from "./sideDrawer.vue";
+import BackgroundServices from "./util/backgroundServices";
 
 import Tareas from './components/tareas/Tareas';
 import Login from './components/Login';

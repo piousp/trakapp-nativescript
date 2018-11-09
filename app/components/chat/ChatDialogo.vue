@@ -1,6 +1,7 @@
 <template>
   <Page class="page" @loaded="loaded" @unloaded="unloaded">
-    <ActionBar :title="userReceptor.nombre || 'Comunicados'" class="action-bar">
+    <ActionBar :title="userReceptor.nombre || 'Comunicados'" class="action-bar"
+    backgroundColor="#171616">
       <android>
         <NavigationButton icon="res://bars" @tap="$refs.drawer.toggleSD();" />
       </android>

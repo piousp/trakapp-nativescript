@@ -1,6 +1,6 @@
 <template>
   <Page class="page" @loaded="fetchData">
-    <ActionBar title="Usuarios" class="action-bar">
+    <ActionBar title="Usuarios" class="action-bar" backgroundColor="#171616">
       <android>
         <NavigationButton icon="res://bars" @tap="$refs.drawer.toggleSD();" />
       </android>

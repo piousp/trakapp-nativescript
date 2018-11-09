@@ -8,7 +8,7 @@
           <Label :text="usuario.nombre + ' ' + usuario.apellidos" />
           <Label :text="usuario.correo" />
         </StackLayout>
-        <Label dock="bottom" text="Cerrar sesión" color="gray" :padding="50"
+        <Label dock="bottom" text="Cerrar sesión" color="gray"
                class="text-center" @tap="cerrarSesion" :height="50"/>
         <ListView dock="center" for="ruta in rutas" @itemTap="enrutar" separatorColor="transparent">
          <v-template>

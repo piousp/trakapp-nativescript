@@ -1,6 +1,6 @@
 <template>
   <Page class="page" @loaded="loaded">
-    <ActionBar title="Tareas" class="action-bar">
+    <ActionBar title="Tareas" class="action-bar" backgroundColor="#171616">
       <android>
         <NavigationButton icon="res://bars" @tap="$refs.drawer.toggleSD();" />
       </android>

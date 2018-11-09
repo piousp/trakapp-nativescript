@@ -1,6 +1,6 @@
 <template>
   <Page class="page">
-    <ActionBar :title="tarea.title" class="action-bar">
+    <ActionBar :title="tarea.title" class="action-bar" backgroundColor="#171616">
       <NavigationButton icon="res://arrow_left" @tap="$navigateBack" />
       <StackLayout class="action-bar-title">
         <Label :text="tarea.title"

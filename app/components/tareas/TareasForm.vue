@@ -50,7 +50,7 @@
                 <FlexboxLayout justifyContent="space-between" alignItems="center" alignContent="center">
                   <CheckBox :checked="item.completado" @checkedChange="checkedChange(item)" fillColor="indigo"
                   :color="tarea.horaInicio ? 'black' : 'gray'" border-width="gray" :text="item.texto"
-                  fontSize="16" :width="item.ubicacion ? '90%' : '100%'"
+                  fontSize="16" :width="item.ubicacion ? '50%' : '60%'"
                   :isUserInteractionEnabled="tarea.horaInicio ? true : false" :isEnabled="tarea.horaInicio ? true : false"/>
                   <Image src="res://map" stretch="aspectFit" height="30"
                   v-show="item.ubicacion" @tap="abrirNavegador(item.ubicacion.coordinates)"/>

@@ -29,7 +29,7 @@
                     for="tarea in tareas"
                     separatorColor="transparent"
                     @itemTap="onItemTap"
-                    style="height:1250px; background-color: rgb(0,0,0,0)">
+                    style="background-color: rgb(0,0,0,0)">
             <v-template if="tarea">
               <GridLayout class="list-group-item" rows="auto, *" columns="60, *, 20">
                 <Image

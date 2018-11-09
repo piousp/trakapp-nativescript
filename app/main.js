@@ -5,6 +5,7 @@ import auth from "./config/auth.js";
 import axios from "./config/axios";
 import sideDrawer from "./sideDrawer.vue";
 
+import Tareas from './components/tareas/Tareas';
 import Login from './components/Login';
 
 import store from './store';
@@ -24,12 +25,16 @@ Vue.registerElement(
 appSettings.setBoolean("enChat", false);
 Vue.prototype.$auth.setHeaders();
 
+const credenciales = Vue.prototype.$auth.getCredenciales();
+
+console.log("Hay credenciales: ", !!credenciales);
+
 // Prints Vue logs when --env.production is *NOT* set while building
 Vue.config.silent = (TNS_ENV === 'production');
 
 new Vue({
 
-  render: h => h('frame',[h(Login)]),
+  render: h => h('frame',[h(credenciales ? Tareas : Login)]),
 
   store,
 

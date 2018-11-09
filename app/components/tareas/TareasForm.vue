@@ -52,7 +52,7 @@
                   :color="tarea.horaInicio ? 'black' : 'gray'" border-width="gray" :text="item.texto"
                   fontSize="16" :width="item.ubicacion ? '90%' : '100%'"
                   :isUserInteractionEnabled="tarea.horaInicio ? true : false" :isEnabled="tarea.horaInicio ? true : false"/>
-                  <Image src="res://map.png" stretch="aspectFit" height="30"
+                  <Image src="res://map" stretch="aspectFit" height="30"
                   v-show="item.ubicacion" @tap="abrirNavegador(item.ubicacion.coordinates)"/>
                 </FlexboxLayout>
                 <StackLayout class="hr-light m-y-5"/>

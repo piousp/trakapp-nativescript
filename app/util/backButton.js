@@ -18,7 +18,7 @@ function modificarBackButton() {
           if (lastPress + timeDelay > moment().valueOf()) {
             args.cancel = false;
           }
-          makeText("Presione otra vez psara salir").show();
+          makeText("Presione otra vez para salir").show();
           lastPress = moment().valueOf();
         }//eslint-disable-line
       );

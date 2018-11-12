@@ -36,6 +36,7 @@ const Auth = {
         const credenciales = this.getCredenciales();
         if (credenciales && credenciales.token) {
           axios.defaults.headers.common.Authorization = `Bearer ${credenciales.token}`;
+          axios.defaults.headers.common.Cuenta = credenciales.usuario.cuenta;
           this.refreshCredenciales();
           registrarPush(credenciales.usuario);
           return true;

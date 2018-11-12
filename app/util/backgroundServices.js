@@ -8,6 +8,7 @@ import * as platform from "tns-core-modules/platform";
 import moment from "moment";
 
 let activo = null;
+const BGids = [];
 
 if (application.android) {
   const { sdkVersion } = platform.device;

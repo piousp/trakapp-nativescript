@@ -1,12 +1,12 @@
 // NativeScript core theme
 // @see https://docs.nativescript.org/ui/theme
-@import '~nativescript-theme-core/scss/light';
+@import "~nativescript-theme-core/scss/_light.scss";
 
 // Override variables here
 
-@import '~nativescript-theme-core/scss/index';
+@import "~nativescript-theme-core/scss/_index.scss";
 
-@import "./custom";
+@import "./custom.css";
 
 // Global <Page> styles
 .page-title {

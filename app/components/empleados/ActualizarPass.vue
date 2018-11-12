@@ -1,6 +1,6 @@
 <template>
   <Page class="page" loaded="loaded">
-    <ActionBar title="Mi Perfil" class="action-bar">
+    <ActionBar title="Mi Perfil" class="action-bar" backgroundColor="#171616">
       <android v-if="!usuario.nuevo">
         <NavigationButton icon="res://bars" @tap="$refs.drawer.toggleSD();" />
       </android>

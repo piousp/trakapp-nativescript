@@ -1,25 +1,25 @@
 <template>
   <RadSideDrawer ref="drawer" @drawerOpened="handleAbierto"
-                 @drawerClosed="handleAbierto">
+                 @drawerClosed="handleAbierto" :showOverNavigation="true">
     <StackLayout ~drawerContent backgroundColor="white">
-      <StackLayout height="180" class="header" @tap="enrutar({ item: rutas[0] })">
-        <Image src="~/assets/images/icono.png" class="header-image"/>
-        <Label :text="usuario.nombre + ' ' + usuario.apellidos" />
-        <Label :text="usuario.correo" />
-      </StackLayout>
-      <ScrollView height="280">
-        <ListView for="ruta in rutas" @itemTap="enrutar" separatorColor="transparent">
-          <v-template>
-            <StackLayout orientation="horizontal">
-              <Image :src="`${ruta.icono}`"
-                     stretch="none"/>
-              <Label :text="ruta.title" verticalAlignment="center"/>
-            </StackLayout>
-          </v-template>
+      <DockLayout stretchLastChild="true" :height="tamanoLista">
+        <StackLayout dock="top" height="180" class="header" @tap="enrutar({ item: rutas[0] })">
+          <Image src="~/assets/images/icono.png" class="header-image"/>
+          <Label :text="usuario.nombre + ' ' + usuario.apellidos" />
+          <Label :text="usuario.correo" />
+        </StackLayout>
+        <Label dock="bottom" text="Cerrar sesión" color="gray"
+               class="text-center" @tap="cerrarSesion" :height="50"/>
+        <ListView dock="center" for="ruta in rutas" @itemTap="enrutar" separatorColor="transparent">
+         <v-template>
+           <StackLayout orientation="horizontal">
+             <Image :src="`${ruta.icono}`"
+                    stretch="none"/>
+             <Label :text="ruta.title" verticalAlignment="center"/>
+           </StackLayout>
+         </v-template>
         </ListView>
-      </ScrollView>
-      <Label text="Cerrar sesión" color="gray" padding="10"
-             style="horizontal-align: center; bottom: 0;" @tap="cerrarSesion"/>
+      </DockLayout>
     </StackLayout>
     <GridLayout ~mainContent>
       <slot/>
@@ -27,6 +27,7 @@
   </RadSideDrawer>
 </template>
 <script>
+import * as platform from "tns-core-modules/platform";
 import filter from "lodash/filter";
 import Login from "./components/Login.vue";
 import MiPerfil from "./components/empleados/Perfil.vue";
@@ -55,9 +56,11 @@ export default {
         { title: "Mensajes", icono: "res://comment_dots", component: Mensajes },
         { title: "Comunicados", icono: "res://comments", component: Comunicados },
       ],
+      tamanoLista: 0,
     };
   },
   created() {
+    this.tamanoLista = platform.screen.mainScreen.heightPixels;
     this.setUsuario();
   },
   methods: {
